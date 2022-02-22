@@ -51,8 +51,10 @@ LinkedList.prototype.removeTail = function () {
 
 ll.addToHead("3");
 ll.addToHead("2");
+ll.addToTail(6);
 ll.addToHead("1");
 ll.addToTail(4);
+ll.addToTail(6);
 ll.addToTail(5);
 ll.addToTail(6);
 
@@ -69,3 +71,19 @@ LinkedList.prototype.search = function (searchValue) {
 };
 
 console.log(ll.search(4));
+
+LinkedList.prototype.indexOf = function (value) {
+  const indexes = [];
+  let currentIndex = 0;
+  let currentNode = this.head;
+  while (this.head) {
+    if (this.head.value === value) {
+      indexes.push(currentIndex);
+    }
+    currentNode = this.head.next;
+    currentIndex++;
+  }
+  return indexes;
+};
+
+console.log(ll.indexOf(6));
