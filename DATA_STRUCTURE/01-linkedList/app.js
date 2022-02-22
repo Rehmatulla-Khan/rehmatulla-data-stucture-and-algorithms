@@ -65,7 +65,7 @@ LinkedList.prototype.search = function (searchValue) {
   let currentNode = this.tail;
   while (this.tail) {
     if (currentNode.value === searchValue) return currentNode.value;
-    currentNode = this.tail.prev;
+    currentNode = currentNode.prev;
   }
   return null;
 };
@@ -76,11 +76,11 @@ LinkedList.prototype.indexOf = function (value) {
   const indexes = [];
   let currentIndex = 0;
   let currentNode = this.head;
-  while (this.head) {
-    if (this.head.value === value) {
+  while (currentNode) {
+    if (currentNode.value === value) {
       indexes.push(currentIndex);
     }
-    currentNode = this.head.next;
+    currentNode = currentNode.next;
     currentIndex++;
   }
   return indexes;
