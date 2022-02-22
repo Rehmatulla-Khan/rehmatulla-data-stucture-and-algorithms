@@ -30,3 +30,31 @@ LinkedList.prototype.addToTail = function (value) {
 };
 
 var ll = new LinkedList();
+
+LinkedList.prototype.removeHead = function () {
+  if (!this.head) return null;
+  const val = this.head.value;
+  this.head = this.head.next;
+  if (this.head) this.head.prev = null;
+  else this.tail = null;
+  return val;
+};
+
+LinkedList.prototype.removeTail = function () {
+  if (!this.tail) return null;
+  const val = this.tail.value;
+  this.tail = this.tail.prev;
+  if (this.tail) this.tail.next = null;
+  else this.head = null;
+  return val;
+};
+
+ll.addToHead("3");
+ll.addToHead("2");
+ll.addToHead("1");
+ll.addToTail(4);
+ll.addToTail(5);
+ll.addToTail(6);
+
+console.log(ll.removeHead());
+console.log(ll.removeTail());
