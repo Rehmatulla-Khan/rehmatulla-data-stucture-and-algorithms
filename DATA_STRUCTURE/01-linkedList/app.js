@@ -58,3 +58,14 @@ ll.addToTail(6);
 
 console.log(ll.removeHead());
 console.log(ll.removeTail());
+
+LinkedList.prototype.search = function (searchValue) {
+  let currentNode = this.tail;
+  while (this.tail) {
+    if (currentNode.value === searchValue) return currentNode.value;
+    currentNode = this.tail.prev;
+  }
+  return null;
+};
+
+console.log(ll.search(4));
